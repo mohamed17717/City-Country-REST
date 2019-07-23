@@ -15,10 +15,13 @@ with open(fileName) as f:
 
 totalCountries = len(countries)
 countryNumber = 0
+
+print('Note: i add to db only countries with less than 100 city to be faster, it just for testing purposes')
+
 for country, cities in countries.items():
   countryNumber += 1
   print(countryNumber, country, str(round(countryNumber/totalCountries, 2) * 100)+'%')
-  if len(cities) > 100 or countryNumber < 23: continue
+  if len(cities) > 100: continue
 
   country = Country(name=country)
   country.save()
